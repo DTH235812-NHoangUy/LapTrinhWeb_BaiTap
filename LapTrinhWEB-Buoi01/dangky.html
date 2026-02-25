@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Đăng Ký Thành Viên</title>
+    <style>
+        /* Copy style chung */
+        body { font-family: Arial, sans-serif; margin: 0; background-color: #fff; }
+        .container { width: 1000px; margin: 0 auto; border: 1px solid #ccc; }
+        .header img { width: 100%; height: auto; display: block; }
+        .menu { background-color: #008000; color: white; padding: 10px; font-weight: bold; }
+        .menu a { color: white; text-decoration: none; margin-right: 20px; }
+        .menu a:hover { text-decoration: underline; }
+        .marquee { color: white; float: right; font-weight: normal; }
+        .main-body { display: flex; background-color: #FFFACD; }
+        .left-sidebar { width: 20%; padding: 10px; border-right: 1px solid #eee; }
+        .content { width: 60%; padding: 10px; } /* Bỏ text-align center để form căn trái đẹp hơn */
+        .right-sidebar { width: 20%; padding: 10px; border-left: 1px solid #eee; }
+        .left-sidebar h3 { color: #333; border-bottom: 1px solid #999; padding-bottom: 5px; font-size: 16px; }
+        .left-sidebar ul { list-style-type: square; padding-left: 20px; }
+        .left-sidebar ul li a { text-decoration: none; color: #000; }
+        .right-sidebar img { width: 100%; margin-bottom: 10px; }
+        .footer { background-color: #1E90FF; color: white; text-align: center; padding: 10px; clear: both; font-size: 14px; }
+
+        /* Style cho Form Đăng Ký */
+        .form-table { margin: 0 auto; width: 100%; }
+        .form-table td { padding: 5px; vertical-align: top; }
+        .form-label { text-align: right; font-weight: bold; width: 30%; color: #555; }
+        .form-input { width: 70%; }
+        input[type="text"], textarea, select { width: 80%; padding: 3px; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header"><img src="banner.jpg" alt="Banner"></div>
+
+    <div class="menu">
+        <a href="trangchu.html">Trang Chủ</a>
+        <a href="dangky.html">Đăng ký</a>
+        <a href="video.html">Video</a>
+        <a href="#">Liên Hệ</a>
+        <span class="marquee">Hoa tươi Long Xuyên kính chào quý khách</span>
+    </div>
+
+    <div class="main-body">
+        <div class="left-sidebar">
+            <h3>Hoa Tươi Online</h3>
+            <ul>
+                <li><a href="#">Ý nghĩa các loài hoa</a></li>
+                <li><a href="#">Hoa Cưới</a></li>
+                <li><a href="#">Hoa Chúc Mừng</a></li>
+                <li><a href="video.html">Video các loài hoa</a></li>
+            </ul>
+            <h3>Hỗ Trợ Khách Hàng</h3>
+            <ul>
+                <li><a href="#">Đăng nhập</a></li>
+                <li><a href="dangky.html">Đăng ký</a></li>
+                <li><a href="#">Góp ý</a></li>
+            </ul>
+        </div>
+
+        <div class="content">
+            <h2 style="text-align: center; color: #333;">THÔNG TIN ĐĂNG KÝ</h2>
+            <form action="#" method="post">
+                <table class="form-table">
+                    <tr>
+                        <td class="form-label">Họ và tên:</td>
+                        <td><input type="text" name="hoten"></td>
+                    </tr>
+                    <tr>
+                        <td class="form-label">Ngày sinh:</td>
+                        <td>
+                            <select name="ngay">
+                                <option>Ngày</option>
+                                <option>01</option><option>02</option><option>03</option>
+                            </select>
+                            <select name="thang">
+                                <option>Tháng</option>
+                                <option>01</option><option>02</option>
+                            </select>
+                            <select name="nam">
+                                <option>Năm</option>
+                                <option>2000</option><option>1999</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="form-label">Giới tính:</td>
+                        <td>
+                            <input type="radio" name="gioitinh" value="nam" checked> Nam
+                            <input type="radio" name="gioitinh" value="nu"> Nữ
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="form-label">Nghề nghiệp:</td>
+                        <td>
+                            <select name="nghenghiep">
+                                <option>--Chọn--</option>
+                                <option>Học sinh</option>
+                                <option>Giáo viên</option>
+                                <option>Kỹ sư</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="form-label">Hoa yêu thích:</td>
+                        <td>
+                            <input type="checkbox" checked> Hoa Lan 
+                            <input type="checkbox"> Hoa Hồng <br>
+                            <input type="checkbox"> Hoa TuLip
+                            <input type="checkbox"> Hoa Cúc <br>
+                            <input type="checkbox"> Hoa Ly
+                            <input type="checkbox"> Hoa Khác
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="form-label">Ghi chú:</td>
+                        <td><textarea name="ghichu" rows="4"></textarea></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <button type="submit">Đăng ký</button>
+                            <button type="reset">Xóa làm lại</button>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+
+        <div class="right-sidebar">
+            <img src="quangcao1.jpg" alt="QC">
+            <img src="quangcao2.jpg" alt="QC">
+        </div>
+    </div>
+
+    <div class="footer">
+        Bản quyền © Công Ty Hoa Tươi Long Xuyên - Email: hoatuoilongxuyen@gmail.com
+    </div>
+</div>
+</body>
+</html>

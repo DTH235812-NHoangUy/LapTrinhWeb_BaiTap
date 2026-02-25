@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Menu Thả Dọc (Vertical Menu)</title>
+    <style>
+        /* Reset default list styling */
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Main menu container */
+        #v-menu {
+            width: 180px; 
+            font-family: Arial, sans-serif;
+        }
+
+        /* Style for all list items */
+        #v-menu li {
+            position: relative; /* Crucial for positioning the sub-menu */
+            background-color: #8ad182; /* Base green background */
+            border-bottom: 2px solid #fff; /* White separator line */
+        }
+
+        /* Style for all links */
+        #v-menu a {
+            display: block;
+            padding: 12px 15px;
+            color: #333;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* Hover effect for the menu items */
+        #v-menu li:hover > a {
+            background-color: #d6ebd3; /* Lighter background when hovered */
+        }
+
+        /* Sub-menu styling */
+        #v-menu .submenu {
+            display: none; /* Hide sub-menu by default */
+            position: absolute;
+            top: 0; /* Align with the top of the parent item */
+            left: 100%; /* Push sub-menu exactly to the right side */
+            width: 180px;
+            border-left: 2px solid #fff; /* Creates the white gap between menus */
+        }
+
+        /* Show the sub-menu when parent list item is hovered */
+        #v-menu li:hover > .submenu {
+            display: block;
+        }
+
+        /* Clean up the bottom border on the last items */
+        #v-menu > li:last-child {
+            border-bottom: none;
+        }
+    </style>
+</head>
+<body>
+
+    <ul id="v-menu">
+        <li><a href="#">Trang chủ</a></li>
+        <li>
+            <a href="#">Tin tức</a>
+            <ul class="submenu">
+                <li><a href="#">WordPress</a></li>
+                <li><a href="#">SEO</a></li>
+                <li><a href="#">Hosting</a></li>
+            </ul>
+        </li>
+        <li><a href="#">Sản phẩm</a></li>
+        <li><a href="#">Liên hệ</a></li>
+    </ul>
+
+</body>
+</html>

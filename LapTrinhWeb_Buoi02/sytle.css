@@ -1,0 +1,55 @@
+/* Định dạng chung cho trang web (lớp body) */
+body {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* Khung chứa (lớp div) */
+div {
+    border: 1px solid #FF00FF; /* Nét liền, mảnh, màu hồng cánh sen */
+    border-radius: 8px;        /* Bo tròn góc 8px */
+    width: 500px;              /* Độ rộng 500px */
+    padding: 5px;              /* Khoảng cách đệm bên trong */
+    margin: auto;              /* Căn giữa trang */
+}
+
+/* Hình chèn vào (lớp img) */
+img {
+    width: 400px;              /* Độ rộng ảnh */
+    display: block;            /* Đưa ảnh về dạng khối để dễ căn chỉnh */
+}
+
+/* Tiêu đề 1 (lớp span.tieude1) */
+span.tieude1 {
+    font-family: "Brush Script MT", cursive;
+    font-size: 40px;
+    color: blue;
+    text-shadow: 2px 2px #FF00FF; /* Đổ bóng chữ */
+}
+
+/* Tiêu đề 2 (lớp span.tieude2) */
+span.tieude2 {
+    font-size: 40px;
+    color: red;
+}
+
+/* Nội dung 1 (lớp span.noidung1) */
+span.noidung1 {
+    color: #4169E1;
+}
+
+/* Nội dung 2 (lớp span.noidung2) */
+span.noidung2 {
+    color: #FF8C00;
+}
+
+/* Thêm định dạng riêng cho số điện thoại để giống ảnh mẫu */
+.phone-number {
+    font-size: 45px;
+    color: red;
+    text-align: right;
+    display: block;
+    margin-top: -60px; /* Đẩy số điện thoại lên cạnh ảnh */
+    margin-right: 20px;
+}

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>Layout Web Cơ Bản</title>
+
+<style>
+body{
+    margin:0px;
+    font-family:Arial;
+}
+
+/* HEADER */
+#header{
+    background-color:#39e4c2;
+    border:1px solid #39e4c2;
+    padding:20px;
+    text-align:center;
+}
+
+#header > div:nth-child(1){
+    font-size:30px;
+    margin-bottom:10px;
+}
+
+/* MENU */
+#menu ul{
+    background-color:black;
+    padding:0px;
+    margin:0px;
+}
+
+#menu ul::after{
+    display:block;
+    content:"";
+    clear:both;
+}
+
+#menu ul li{
+    float:left;
+    list-style-type:none;
+}
+
+#menu ul li a{
+    display:inline-block;
+    text-decoration:none;
+    padding:12px 20px;
+    color:white;
+}
+
+#menu ul li a:hover{
+    background-color:#ddd;
+    color:black;
+}
+
+/* MAIN */
+#main::after{
+    display:block;
+    content:"";
+    clear:both;
+}
+
+#main #side{
+    box-sizing:border-box;
+    padding:10px;
+    float:left;
+    width:30%;
+}
+
+#main #side img{
+    width:100%;
+}
+
+#main #content{
+    box-sizing:border-box;
+    padding:10px;
+    float:left;
+    width:70%;
+}
+
+#main #content p:last-child{
+    text-align:right;
+}
+
+/* FOOTER */
+#footer{
+    background-color:#ddd;
+    padding:15px;
+    text-align:center;
+}
+</style>
+</head>
+
+<body>
+
+<div id="header">
+    <div>WEB CƠ BẢN</div>
+    <div>(giới thiệu sơ qua trang web)</div>
+</div>
+
+<div id="menu">
+    <ul>
+        <li><a href="">Link 1</a></li>
+        <li><a href="">Link 2</a></li>
+        <li><a href="">Link 3</a></li>
+        <li><a href="">Link 4</a></li>
+    </ul>
+</div>
+
+<div id="main">
+    <div id="side">
+        <p><b>Thông tin tác giả</b></p>
+        <p>- Họ tên: . . . . .</p>
+        <p>- Ngày sinh: . . . . .</p>
+        <p>- Giới tính: . . . . .</p>
+        <p>- Địa chỉ: . . . . .</p>
+        <p>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/3/32/Lovebird.jpg">
+        </p>
+    </div>
+
+    <div id="content">
+        <h2>Tiêu đề bài viết</h2>
+        <p>.......................................................................</p>
+        <p>.......................................................................</p>
+        <p>.......................................................................</p>
+        <p>.......................................................................</p>
+        <p>.......................................................................</p>
+        <p>.......................................................................</p>
+        <p>.......................................................................</p>
+        <p>.......................................................................</p>
+        <p>.......................................................................</p>
+        <p>Ngày đăng: 03/09/2021</p>
+    </div>
+</div>
+
+<div id="footer">
+    Thông tin bản quyền
+</div>
+
+</body>
+</html>

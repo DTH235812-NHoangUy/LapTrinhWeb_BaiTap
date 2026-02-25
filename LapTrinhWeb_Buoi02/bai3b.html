@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Horizontal Navigation Bar</title>
+    <style>
+        /* Basic reset to make it look clean */
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        /* The container for the links */
+        nav {
+            display: flex; /* Makes the list horizontal */
+            gap: 5px;      /* Adds the small space between boxes */
+        }
+
+        /* Style for all links */
+        nav a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            padding: 10px 30px;
+            background-color: #4169E1; /* Royal Blue for default */
+            text-align: center;
+            min-width: 80px;
+        }
+
+        /* Specific style for the HTML (first) button */
+        nav a.html-link {
+            background-color: #87CEEB; /* Sky Blue */
+        }
+
+        /* Specific style for Javascript text */
+        nav a.js-link {
+            color: yellow;
+        }
+
+        /* Simple hover effect for interactivity */
+        nav a:hover {
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="#" class="html-link">HTML</a>
+        <a href="#">CSS</a>
+        <a href="#" class="js-link">Javascript</a>
+        <a href="#">PHP</a>
+        <a href="#">SQL</a>
+    </nav>
+
+</body>
+</html>

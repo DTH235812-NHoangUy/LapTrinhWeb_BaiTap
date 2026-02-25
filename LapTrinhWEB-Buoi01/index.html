@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Thế giới hoa - Trang Chủ</title>
+    <style>
+        /* CSS CHUNG CHO TOÀN BỘ WEBSITE */
+        body { font-family: Arial, sans-serif; margin: 0; background-color: #fff; }
+        .container { width: 1000px; margin: 0 auto; border: 1px solid #ccc; }
+        .header img { width: 100%; height: auto; display: block; }
+        
+        /* Menu Navigation */
+        .menu { background-color: #008000; color: white; padding: 10px; font-weight: bold; }
+        .menu a { color: white; text-decoration: none; margin-right: 20px; }
+        .menu a:hover { text-decoration: underline; color: #ffff00; }
+        .marquee { color: white; float: right; font-weight: normal; }
+
+        /* Layout Flexbox */
+        .main-body { display: flex; background-color: #FFFACD; min-height: 400px; }
+        
+        /* Sidebar Trái */
+        .left-sidebar { width: 20%; padding: 10px; border-right: 1px solid #eee; background-color: #FFFFCC; }
+        .left-sidebar h3 { color: #333; border-bottom: 1px solid #999; padding-bottom: 5px; font-size: 16px; margin-top: 0; }
+        .left-sidebar ul { list-style-type: square; padding-left: 20px; }
+        .left-sidebar ul li { margin-bottom: 5px; }
+        .left-sidebar ul li a { text-decoration: none; color: #000; }
+        .left-sidebar ul li a:hover { color: red; }
+
+        /* Nội dung chính giữa */
+        .content { width: 60%; padding: 10px; text-align: center; }
+        
+        /* Sidebar Phải */
+        .right-sidebar { width: 20%; padding: 10px; border-left: 1px solid #eee; background-color: #FFFFCC; text-align: center; }
+        .right-sidebar img { width: 100%; margin-bottom: 15px; border: 1px solid #ddd; }
+
+        /* Footer */
+        .footer { background-color: #1E90FF; color: white; text-align: center; padding: 10px; clear: both; font-size: 14px; }
+
+        /* CSS Riêng cho lưới sản phẩm trang chủ */
+        .flower-grid { display: flex; flex-wrap: wrap; justify-content: space-around; }
+        .flower-item { width: 45%; margin-bottom: 20px; background: white; padding: 10px; border-radius: 5px; box-shadow: 0 0 5px rgba(0,0,0,0.1); }
+        .flower-item img { width: 100%; height: 150px; object-fit: cover; border-radius: 4px; }
+        .flower-item h4 { margin: 10px 0 5px 0; color: #008000; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header"><img src="banner-hoa.jpg" alt="Banner Thế Giới Hoa" onerror="this.src='https://via.placeholder.com/1000x160?text=Banner+Hoa'"/></div>
+
+    <div class="menu">
+        <a href="index.html">Trang Chủ</a>
+        <a href="dangky.html">Đăng Ký</a>
+        <a href="video.html">Video</a>
+        <a href="#">Liên Hệ</a>
+        <span class="marquee">Hoa tươi Long Xuyên kính chào quý khách, nhận đặt hoa cưới, sinh nhật</span>
+    </div>
+
+    <div class="main-body">
+        <div class="left-sidebar">
+            <h3>Hoa Tươi Online</h3>
+            <ul>
+                <li><a href="#">Ý nghĩa các loài hoa</a></li>
+                <li><a href="#">Hoa Cưới</a></li>
+                <li><a href="#">Hoa Chúc Mừng</a></li>
+                <li><a href="#">Hoa Tình Yêu</a></li>
+                <li><a href="video.html">Video các loài hoa</a></li>
+            </ul>
+            
+            <h3>Hỗ Trợ Khách Hàng</h3>
+            <ul>
+                <li><a href="#">Đăng nhập</a></li>
+                <li><a href="dangky.html">Đăng ký</a></li>
+                <li><a href="#">Góp ý</a></li>
+            </ul>
+
+            <h3>Giải trí</h3>
+            <ul>
+                <li><a href="#">Xem hài</a></li>
+                <li><a href="#">Xem bói</a></li>
+            </ul>
+            
+            <div style="margin-top:20px; text-align:center;">
+                 <iframe scrolling="no" frameborder="no" style="overflow:hidden;border:0;margin:0;padding:0;width:150px;height:150px;" src="https://www.clocklink.com/html5embed.php?clock=046&timezone=ICT&color=blue&size=150"></iframe>
+            </div>
+        </div>
+
+        <div class="content">
+            <img src="hoa9.jpg" width="100%" alt="Hoa nổi bật" style="margin-bottom: 20px; border-radius: 5px;" onerror="this.src='https://via.placeholder.com/600x200?text=Hoa+Noi+Bat'"/>
+            <h2 style="color: #006400; border-bottom: 2px solid orange; display: inline-block; padding-bottom: 5px;">Hoa Tươi Hôm Nay</h2>
+            <br><br>
+
+            <div class="flower-grid">
+                <div class="flower-item">
+                    <img src="hoa1.jpg" alt="Hoa Tulip" onerror="this.src='https://via.placeholder.com/150?text=Hoa+Tulip'">
+                    <h4>Hoa Tulip</h4>
+                    <span>Giá: Liên hệ</span>
+                </div>
+                <div class="flower-item">
+                    <img src="hoa2.jpg" alt="Hoa Hồng" onerror="this.src='https://via.placeholder.com/150?text=Hoa+Hong'">
+                    <h4>Hoa Hồng</h4>
+                    <span>Giá: Liên hệ</span>
+                </div>
+                <div class="flower-item">
+                    <img src="hoa3.jpg" alt="Hoa Ly" onerror="this.src='https://via.placeholder.com/150?text=Hoa+Ly'">
+                    <h4>Hoa Ly</h4>
+                    <span>Giá: Liên hệ</span>
+                </div>
+                <div class="flower-item">
+                    <img src="hoa4.jpg" alt="Hoa Cúc" onerror="this.src='https://via.placeholder.com/150?text=Hoa+Cuc'">
+                    <h4>Hoa Cúc</h4>
+                    <a href="#" style="color:blue; font-size:13px;">Xem thêm...</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="right-sidebar">
+            <br>
+            <b>Hoa tươi Long Xuyên</b><br><br>
+            <img src="hoa8.jpg" alt="Quảng cáo 1" onerror="this.src='https://via.placeholder.com/160x200?text=Quang+Cao+1'"/>
+            <img src="quangcao1.jpg" alt="Hỗ trợ" onerror="this.src='https://via.placeholder.com/160x200?text=Ho+Tro'"/>
+        </div>
+    </div>
+
+    <div class="footer">
+        Bản quyền © Công Ty Hoa Tươi Long Xuyên - Email: hoatuoilongxuyen@gmail.com
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Website</title>
+
+<style>
+*{
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body{
+    margin:0;
+    background:#f1f1f1;
+}
+
+/* Header */
+.header{
+    padding:30px;
+    text-align:center;
+    background:white;
+}
+
+.header h1{
+    font-size:40px;
+}
+
+/* Navbar */
+.navbar{
+    overflow:hidden;
+    background:#333;
+}
+
+.navbar a{
+    float:left;
+    display:block;
+    color:white;
+    padding:14px 20px;
+    text-decoration:none;
+}
+
+.navbar a.right{
+    float:right;
+}
+
+.navbar a:hover{
+    background:#ddd;
+    color:black;
+}
+
+/* Layout */
+.row{
+    display:flex;
+    flex-wrap:wrap;
+}
+
+.left{
+    flex:75%;
+    padding:20px;
+}
+
+.right{
+    flex:25%;
+    padding:20px;
+    background:#f1f1f1;
+}
+
+/* Card */
+.card{
+    background:white;
+    padding:20px;
+    margin-bottom:20px;
+}
+
+.fakeimg{
+    background:#aaa;
+    width:100%;
+    padding:40px;
+}
+
+/* Footer */
+.footer{
+    padding:20px;
+    text-align:center;
+    background:#ddd;
+}
+
+/* Responsive */
+@media screen and (max-width:800px){
+    .row{
+        flex-direction:column;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="header">
+    <h1>My Website</h1>
+    <p>Resize the browser window to see the effect.</p>
+</div>
+
+<div class="navbar">
+    <a href="#">Link</a>
+    <a href="#">Link</a>
+    <a href="#">Link</a>
+    <a href="#" class="right">Link</a>
+</div>
+
+<div class="row">
+    <div class="left">
+        <div class="card">
+            <h2>TITLE HEADING</h2>
+            <h5>Title description, Dec 7, 2017</h5>
+            <div class="fakeimg" style="height:200px;">Image</div>
+            <p>Some text..</p>
+            <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur.</p>
+        </div>
+    </div>
+
+    <div class="right">
+        <div class="card">
+            <h2>About Me</h2>
+            <div class="fakeimg" style="height:100px;">Image</div>
+            <p>Some text about me in culpa qui officia deserunt mollit anim..</p>
+        </div>
+
+        <div class="card">
+            <h3>Popular Post</h3>
+            <div class="fakeimg">Image</div><br>
+            <div class="fakeimg">Image</div><br>
+            <div class="fakeimg">Image</div>
+        </div>
+    </div>
+</div>
+
+<div class="footer">
+    <h2>Footer</h2>
+</div>
+
+</body>
+</html>

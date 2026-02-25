@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Website Quản Trị Mạng</title>
+
+<style>
+*{
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    margin:0;
+    background:#e9e2f3;
+}
+
+/* Header */
+.header{
+    padding:30px;
+    text-align:center;
+    background:white;
+}
+
+.header h1{
+    color:#5b2c83;
+    margin:0;
+}
+
+.header p{
+    color:#7a5ca6;
+}
+
+/* Navbar */
+.navbar{
+    overflow:hidden;
+    background:#5b2c83;
+}
+
+.navbar a{
+    float:left;
+    display:block;
+    color:white;
+    padding:14px 20px;
+    text-decoration:none;
+}
+
+.navbar a.right{
+    float:right;
+}
+
+.navbar a:hover{
+    background:#ddd;
+    color:black;
+}
+
+/* Layout */
+.row{
+    display:flex;
+    flex-wrap:wrap;
+    padding:20px;
+}
+
+.left{
+    flex:75%;
+    padding:20px;
+}
+
+.right{
+    flex:25%;
+    padding:20px;
+}
+
+/* Card */
+.card{
+    background:white;
+    padding:20px;
+    margin-bottom:20px;
+}
+
+.fakeimg{
+    background:#b19acb;
+    width:100%;
+    padding:40px;
+}
+
+/* Responsive */
+@media screen and (max-width:800px){
+    .row{
+        flex-direction:column;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="header">
+    <h1>Website Quản Trị Mạng</h1>
+    <p>Kiến thức - Kinh nghiệm - Hỏi đáp</p>
+</div>
+
+<div class="navbar">
+    <a href="#">Làng Công nghệ</a>
+    <a href="#">Công nghệ</a>
+    <a href="#">Cuộc sống</a>
+    <a href="#" class="right">Đăng ký</a>
+</div>
+
+<div class="row">
+    <div class="left">
+        <div class="card">
+            <h2>Form - Biểu mẫu trong CSS</h2>
+            <h5>Quách Tĩnh, 14/02/2019</h5>
+            <div class="fakeimg" style="height:200px;">Ảnh</div>
+            <p>Form là một phần không thể thiếu trong bất kì loại website nào.</p>
+        </div>
+    </div>
+
+    <div class="right">
+        <div class="card">
+            <h2>Giới thiệu</h2>
+            <div class="fakeimg" style="height:100px;">Ảnh</div>
+            <p>Quantrimang.com là mạng xã hội về khoa học công nghệ.</p>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

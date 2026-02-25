@@ -1,0 +1,60 @@
+/* Áp dụng font chữ và cỡ chữ từ Bài 3 cho toàn bộ bảng */
+table {
+    border: 5px groove #6633FF;
+    padding: 1px;
+    font-family: Arial, sans-serif; /* Lấy từ bài 3 */
+    font-size: 12pt;                /* Lấy từ bài 3 */
+    border-collapse: collapse;      /* Giúp viền bảng gọn gàng hơn */
+    width: 100%;                    /* Tùy chọn: Giúp bảng trải rộng dễ nhìn */
+    max-width: 600px;
+}
+
+/* Định dạng cho tiêu đề (bạn có class này ở CSS nhưng chưa dùng ở HTML) */
+.tieu-de {
+    margin-bottom: 30px; 
+    color: #333333;
+    font-family: Arial, sans-serif;
+    font-size: 16pt;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Căn giữa chữ giống nút bấm bài 3 */
+th, td {
+    border: thin solid #FFFFFF; /* Viền trắng giống bài 3 */
+    padding: 8px;
+    text-align: center;         /* Lấy từ bài 3 */
+}
+
+/* Giữ nguyên yêu cầu Bài 2: Tiêu đề bảng */
+tr.head {
+    color: #FFFFFF;
+    font-weight: bold;
+    background-color: #6633FF;
+}
+
+/* Giữ nguyên yêu cầu Bài 2: Dòng chẵn lẻ */
+tr.odd {
+    background-color: #FFEEFF;
+}
+tr.even {
+    background-color: #CCCCFF;
+}
+
+/* ---------------------------------------------------
+   HIỆU ỨNG TƯƠNG TÁC DỰA TRÊN BÀI 3
+   (Chỉ áp dụng cho dòng odd và even, bỏ qua dòng head)
+------------------------------------------------------ */
+
+/* Khi rê chuột vào dòng (Giống a:hover bài 3) */
+tr.odd:hover, tr.even:hover {
+    background-color: #87CEEB;
+    color: #FFFFFF;
+    cursor: pointer; /* Đổi con trỏ thành hình bàn tay */
+}
+
+/* Khi bấm giữ chuột vào dòng (Giống a:active bài 3) */
+tr.odd:active, tr.even:active {
+    background-color: #8A2BE2;
+    color: #FFFFFF;
+}

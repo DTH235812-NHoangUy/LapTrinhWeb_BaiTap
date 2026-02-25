@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Video Các Loài Hoa</title>
+    <style>
+        /* Copy y nguyên style từ trang chủ để đồng bộ */
+        body { font-family: Arial, sans-serif; margin: 0; background-color: #fff; }
+        .container { width: 1000px; margin: 0 auto; border: 1px solid #ccc; }
+        .header img { width: 100%; height: auto; display: block; }
+        .menu { background-color: #008000; color: white; padding: 10px; font-weight: bold; }
+        .menu a { color: white; text-decoration: none; margin-right: 20px; }
+        .menu a:hover { text-decoration: underline; }
+        .marquee { color: white; float: right; font-weight: normal; }
+        .main-body { display: flex; background-color: #FFFACD; }
+        .left-sidebar { width: 20%; padding: 10px; border-right: 1px solid #eee; }
+        .content { width: 60%; padding: 10px; text-align: center; }
+        .right-sidebar { width: 20%; padding: 10px; border-left: 1px solid #eee; }
+        .left-sidebar h3 { color: #333; border-bottom: 1px solid #999; padding-bottom: 5px; font-size: 16px; }
+        .left-sidebar ul { list-style-type: square; padding-left: 20px; }
+        .left-sidebar ul li a { text-decoration: none; color: #000; }
+        .left-sidebar ul li a:hover { color: red; }
+        .right-sidebar img { width: 100%; margin-bottom: 10px; }
+        .footer { background-color: #1E90FF; color: white; text-align: center; padding: 10px; clear: both; font-size: 14px; }
+        
+        /* Riêng cho trang Video */
+        .video-container { margin-bottom: 20px; background: black; padding: 10px; }
+        .video-container img, .video-container video { width: 100%; max-height: 300px; object-fit: contain; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header"><img src="banner.jpg" alt="Banner"></div>
+
+    <div class="menu">
+        <a href="trangchu.html">Trang Chủ</a>
+        <a href="dangky.html">Đăng ký</a>
+        <a href="video.html">Video</a>
+        <a href="#">Liên Hệ</a>
+        <span class="marquee">Hoa tươi Long Xuyên kính chào quý khách</span>
+    </div>
+
+    <div class="main-body">
+        <div class="left-sidebar">
+            <h3>Hoa Tươi Online</h3>
+            <ul>
+                <li><a href="#">Ý nghĩa các loài hoa</a></li>
+                <li><a href="#">Hoa Cưới</a></li>
+                <li><a href="#">Hoa Chúc Mừng</a></li>
+                <li><a href="#">Hoa Tình Yêu</a></li>
+                <li><a href="video.html">Video các loài hoa</a></li>
+            </ul>
+            <h3>Hỗ Trợ Khách Hàng</h3>
+            <ul>
+                <li><a href="#">Đăng nhập</a></li>
+                <li><a href="dangky.html">Đăng ký</a></li>
+                <li><a href="#">Góp ý</a></li>
+            </ul>
+        </div>
+
+        <div class="content">
+            <h2 style="border-bottom: 2px solid green; padding-bottom: 5px;">HÌNH ẢNH CÁC LOÀI HOA</h2>
+            
+            <div class="video-container">
+                <img src="hoa6.jpg" alt="Hoa Loa Kèn">
+            </div>
+
+            <div class="video-container">
+                 <video controls autoplay muted>
+                    <source src="hoadep.mp4" type="video/mp4">
+                    Trình duyệt của bạn không hỗ trợ video.
+                </video>
+            </div>
+        </div>
+
+        <div class="right-sidebar">
+            <img src="quangcao1.jpg" alt="QC">
+            <img src="quangcao2.jpg" alt="QC">
+        </div>
+    </div>
+
+    <div class="footer">
+        Bản quyền © Công Ty Hoa Tươi Long Xuyên - Email: hoatuoilongxuyen@gmail.com
+    </div>
+</div>
+</body>
+</html>
