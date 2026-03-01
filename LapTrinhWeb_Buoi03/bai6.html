@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Bài 6 - Kiểm tra Đăng Nhập</title>
+        <meta charset="utf-8" />
+        <script type="text/javascript" src="bai6.js"></script>
+        
+        <style>
+            /* CSS tui thêm vào để tạo khung viền đen giống đề bài */
+            .box-form {
+                border: 1px solid black;
+                padding: 15px 20px;
+                display: inline-block;
+                font-family: 'Times New Roman', Times, serif;
+                font-size: 16px;
+            }
+            body {
+                text-align: center;
+                margin-top: 50px;
+            }
+            td {
+                padding: 5px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="box-form">
+            <form action="#" method="post" onsubmit="return KiemTra();">
+                <table border="0" align="center">
+                    <tr>
+                        <td align="left">Tên đăng nhập:</td>
+                        <td align="left">
+                            <input type="text" name="txtTDN" /> (nhiều hơn 6 ký tự)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left">Mật khẩu:</td>
+                        <td align="left"><input type="password" name="txtMK" /></td>
+                    </tr>
+                    <tr>
+                        <td align="left">Xác nhận mật khẩu:</td>
+                        <td align="left"><input type="password" name="txtXNMK" /></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" align="center">
+                            <br>
+                            <input type="submit" name="btnDN" value="OK" style="width: 50px;" />
+                            <input type="reset" value="Hủy" style="width: 50px;"/>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </body>
+</html>

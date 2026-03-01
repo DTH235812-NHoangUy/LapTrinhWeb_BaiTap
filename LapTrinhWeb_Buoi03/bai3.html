@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 3 - Chọn tháng năm</title>
+    <style>
+        /* CSS tạo khung viền giống y hệt mẫu trong đề bài */
+        .container {
+            border: 1px solid black;
+            padding: 5px 10px;
+            display: inline-block;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+        }
+        body {
+            margin-top: 50px;
+            text-align: center; /* Canh giữa màn hình cho đẹp */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <table border="0" align="center">
+            <tr>
+                <td>Chọn tháng và năm:</td>
+                <td>
+                    <select name="cboThang">
+                        <option value="0">Tháng</option>
+                        <script type="text/javascript">
+                            // Vòng lặp in ra từ tháng 1 đến 12
+                            for(var i = 1; i <= 12; i++) {
+                                document.write("<option value='" + i + "'>" + i + "</option>");
+                            }
+                        </script>
+                    </select>
+
+                    <select name="cboNam">
+                        <option value="0">Năm</option>
+                        <script type="text/javascript">
+                            // Lấy năm hiện tại từ hệ thống máy tính
+                            var today = new Date();
+                            var nam = today.getFullYear(); 
+
+                            // Vòng lặp in ra từ năm 1970 đến năm hiện tại
+                            for(var i = 1970; i <= nam; i++) {
+                                document.write("<option value='" + i + "'>" + i + "</option>");
+                            }
+                        </script>
+                    </select>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+</body>
+</html>

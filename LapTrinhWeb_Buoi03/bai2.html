@@ -1,0 +1,17 @@
+<body>
+    <form name="f">
+        Hãy chọn màu nền:
+        <select name="optMauNen" onclick="document.bgColor=f.optMauNen.value">
+            <script language="Javascript">
+                var mau = new Array('white', 'gray', 'red', 'green', 
+                                    'blue', 'magenta', 'yellow', 'cyan');
+                
+                for (var i in mau) {
+                    document.write('<option value="' + mau[i] + '">' 
+                                    + mau[i] 
+                                    + '</option>');
+                }
+            </script>
+        </select>
+    </form>
+</body>

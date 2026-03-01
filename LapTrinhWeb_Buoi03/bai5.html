@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8">
+    <title>Bài 5 - Đồng hồ</title>
+
+    <script>
+        function htGio() {
+            var d = new Date();
+            var gio = d.getHours();
+            var phut = d.getMinutes();
+            var giay = d.getSeconds();
+
+            // đổi sang 12h
+            var h = (gio > 12) ? (gio - 12) : gio;
+
+            var s = h;
+            s += (phut < 10 ? ":0" : ":") + phut;
+            s += (giay < 10 ? ":0" : ":") + giay;
+            s += (gio >= 12) ? " Chiều" : " Sáng";
+
+            document.getElementById("dongho").innerHTML = s;
+
+            setTimeout(htGio, 1000);
+        }
+    </script>
+</head>
+
+<body onload="htGio()">
+    <p id="dongho" style="
+        display:inline-block;
+        border:1px solid #333;
+        padding:6px 12px;
+        font-size:22px;
+        font-family:Times New Roman;
+    ">
+    </p>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Bài 5 - Tìm kiếm nâng cao</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        
+        <style>
+            /* CSS thêm vào cho cái form nhìn mượt mà hơn */
+            body { font-family: Arial, sans-serif; color: #333; margin: 30px; }
+            table { border-collapse: collapse; box-shadow: 2px 2px 10px rgba(0,0,0,0.1); width: 450px;}
+            td { padding: 12px; }
+            #search_advance { display: none; /* Mặc định ẩn dòng tìm kiếm nâng cao */ }
+            
+            a#show_search_advance { 
+                text-decoration: none; color: #007bff; font-size: 14px; font-style: italic; 
+            }
+            a#show_search_advance:hover { text-decoration: underline; color: red; }
+            
+            input[type="text"], select { width: 90%; padding: 6px; }
+            input[type="button"] { 
+                padding: 8px 15px; background: #28a745; color: white; 
+                border: none; border-radius: 4px; cursor: pointer; font-weight: bold;
+            }
+            input[type="button"]:hover { background: #218838; }
+        </style>
+
+        <script language="JavaScript">
+            // 1. Hàm của ông: Ẩn / Hiện chức năng tìm kiếm nâng cao
+            function show_search_advance() {
+                var a = document.getElementById('show_search_advance');
+                var category = document.getElementById('search_advance');
+                var text = a.innerHTML;
+             
+                if (text == 'Tìm kiếm nâng cao'){
+                    category.style.display = "table-row";
+                    a.innerHTML = "Bỏ tìm kiếm nâng cao";
+                }
+                else {
+                    category.style.display = "none";
+                    a.innerHTML = "Tìm kiếm nâng cao";
+                }
+                return false;
+            }
+
+            // 2. Hàm TUI VIẾT THÊM: Xử lý khi click vào nút "Tìm kiếm"
+            function thuc_hien_tim_kiem() {
+                var keyword = document.getElementById('title').value;
+                var category_row = document.getElementById('search_advance');
+                var category_select = document.getElementById('category');
+                
+                // Ràng buộc phải nhập từ khóa
+                if (keyword.trim() == "") {
+                    alert("Ê ông ơi, chưa nhập từ khóa vô ô 'Nhập tiêu đề' kìa!");
+                    document.getElementById('title').focus();
+                    return;
+                }
+
+                var msg = "Đang tìm kiếm từ khóa: [" + keyword + "]\n";
+
+                // Kiểm tra xem Tìm kiếm nâng cao có đang bật không (display = table-row)
+                if (category_row.style.display == "table-row") {
+                    // Lấy chữ (text) của chuyên mục đang được chọn
+                    var cat_name = category_select.options[category_select.selectedIndex].text;
+                    msg += "Chuyên mục: " + cat_name;
+                } else {
+                    msg += "Chuyên mục: Tất cả (Chưa bật tìm nâng cao)";
+                }
+
+                // Xuất thông báo kết quả
+                alert(msg);
+            }
+        </script>
+    </head>
+    
+    <body>
+       <h2>Tìm kiếm dữ liệu</h2>
+        <table border="1" cellspacing="0" cellpadding="5">
+            <tr>
+                <td width="35%">Nhập tiêu đề</td>
+                <td>
+                    <input type="text" id="title" value="" placeholder="Gõ gì đó vào đây..."/> <br/>
+                    <a href="#" onclick="return show_search_advance()" id="show_search_advance">Tìm kiếm nâng cao</a>
+                </td>
+            </tr>
+            <tr id="search_advance">
+                <td>Chọn chuyên mục</td>
+                <td>
+                    <select id="category">
+                        <option value="1">PHP</option>
+                        <option value="2">Javascript</option>
+                        <option value="3">HTML / CSS</option>
+                        <option value="4">Cơ sở dữ liệu</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <input type="button" id="btn_search" value="Tìm kiếm" onclick="thuc_hien_tim_kiem()"/>
+                </td>
+            </tr>
+        </table>
+    </body>
+</html>

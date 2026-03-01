@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Kiểm tra form - Bài 7</title>
+    <meta charset="utf-8" />
+    <style>
+        /* CSS tạo khung viền đen cho form giống mẫu */
+        .box-form {
+            border: 1px solid black;
+            padding: 10px;
+            display: inline-block;
+            font-family: 'Times New Roman', Times, serif;
+        }
+        body {
+            text-align: center;
+            margin-top: 30px;
+        }
+    </style>
+
+    <script language="Javascript">
+        // Hàm kiểm tra form tổng
+        function kiemtraform() {
+            // Họ tên bắt buộc nhập
+            if(document.f.txtHoTen.value == '') {
+                alert('Tên không được bỏ trống!');
+                document.f.txtHoTen.focus();
+                return false;
+            }
+
+            // Chọn năm sinh: ứng viên phải >= 16 tuổi
+            var d = new Date();
+            if(d.getFullYear() - document.f.optNamSinh.value < 16) {
+                alert('Năm sinh không hợp lệ! Ứng viên phải từ 16 tuổi.');
+                document.f.optNamSinh.focus();
+                return false;
+            }
+
+            // Phải chọn ít nhất một hình thức làm việc
+            if((document.f.chkHinhThucToanTG.checked == false) && (document.f.chkHinhThucBanTG.checked == false)) {
+                alert('Phải chọn ít nhất một hình thức làm việc!');
+                return false;
+            }
+
+            // Nếu tất cả hợp lệ, hiển thị thông tin trên cửa sổ mới
+            hienthithongtin();
+            return true;
+        }
+
+        // Kiểm tra mức lương phải là số
+        function kiemtraluong() {
+            if(isNaN(document.f.txtMucLuong.value)) {
+                alert('Mức lương phải là số!');
+                document.f.txtMucLuong.focus();
+                return false;
+            }
+            return true;
+        }
+
+        // Mở cửa sổ mới hiển thị thông tin
+        function hienthithongtin() {
+            var csmoi = window.open('');
+            csmoi.document.write('Cảm ơn! Bên dưới là thông tin đăng ký của bạn:');
+            csmoi.document.write('<br/>Họ tên: ' + document.f.txtHoTen.value);
+            csmoi.document.write('<br/>Năm sinh: ' + document.f.optNamSinh.value);
+            csmoi.document.write('<br/>Giới tính: ');
+            
+            if(document.f.radGioiTinh[0].checked == true)
+                csmoi.document.write(document.f.radGioiTinh[0].value);
+            else
+                csmoi.document.write(document.f.radGioiTinh[1].value);
+
+            csmoi.document.write('<br/>Mức lương đề nghị: ' + document.f.txtMucLuong.value);
+            csmoi.document.write('<br/>Hình thức làm việc: ');
+            
+            if(document.f.chkHinhThucToanTG.checked == true)
+                csmoi.document.write(document.f.chkHinhThucToanTG.value + ' ');
+            if(document.f.chkHinhThucBanTG.checked == true)
+                csmoi.document.write(document.f.chkHinhThucBanTG.value);
+                
+            csmoi.document.write('<br/>Thông tin bổ sung: ' + document.f.txtThongTin.value);
+        }
+    </script>
+</head>
+
+<body>
+    <div class="box-form">
+        <form name="f">
+            <table border="0" cellpadding="5" cellspacing="0" width="498">
+                <tr>
+                    <td colspan="2" align="center"><b>THÔNG TIN ỨNG VIÊN</b></td>
+                </tr>
+                <tr>
+                    <td>Họ tên</td>
+                    <td><input type="text" size="28" name="txtHoTen"/></td>
+                </tr>
+                <tr>
+                    <td>Năm sinh</td>
+                    <td>
+                        <select name="optNamSinh">
+                            <script language="Javascript">
+                                var d = new Date();
+                                for (i=d.getFullYear(); i>=1950; i--){
+                                    document.write('<option value="' + i + '">' + i + '</option>');
+                                }
+                            </script>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Giới tính</td>
+                    <td>
+                        <input type="radio" name="radGioiTinh" value="Nam" checked="true"/>Nam 
+                        <input type="radio" name="radGioiTinh" value="Nữ"/>Nữ
+                    </td>
+                </tr>
+                <tr>
+                    <td>Mức lương đề nghị</td>
+                    <td><input type="text" name="txtMucLuong" onchange="kiemtraluong();"/></td>
+                </tr>
+                <tr>
+                    <td>Hình thức làm việc</td>
+                    <td>
+                        <input type="checkbox" name="chkHinhThucToanTG" value="Toàn thời gian"/>Toàn thời gian 
+                        <input type="checkbox" name="chkHinhThucBanTG" value="Bán thời gian"/>Bán thời gian
+                    </td>
+                </tr>
+                <tr>
+                    <td>Thông tin khác</td>
+                    <td><textarea rows="4" cols="25" name="txtThongTin"></textarea></td>
+                </tr>
+                <tr>
+                    <td colspan="2" align="center">
+                        <input type="button" value="Gửi" onclick="kiemtraform();"/> 
+                        <input type="reset" value="Xóa"/>
+                    </td>
+                </tr>   
+            </table>
+        </form>
+    </div>
+</body>
+</html>

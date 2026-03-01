@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Bài 12 - Trình chiếu ảnh</title>
+    <style>
+        /* Canh giữa và tạo viền cho ảnh nhìn xịn xò hơn */
+        .gallery {
+            text-align: center;
+            margin-top: 50px;
+        }
+        img[name="myimage"] {
+            border: 3px solid #333;
+            border-radius: 10px;
+            box-shadow: 5px 5px 15px rgba(0,0,0,0.3);
+            width: 400px; /* Chỉnh lại kích thước nếu cần */
+            height: 300px;
+            object-fit: cover;
+        }
+        .controls {
+            margin-top: 15px;
+        }
+        input[type="button"] {
+            padding: 8px 15px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+
+    <script type="text/javascript">
+        // 1. Khai báo mảng chứa đường dẫn các ảnh của ông 
+        // (Nhớ tạo thư mục 'images' và bỏ mấy tấm hình này vào nha)
+        var arrImages = [
+            "image1.jpg", 
+            "image2.jpg", 
+            "image3.jpg",
+            "image4.jpg"
+        ];
+        
+        var index = 0; // Biến đếm vị trí ảnh hiện tại
+
+        // 2. Hàm chuyển sang ảnh tiếp theo
+        function nextImage() {
+            index++;
+            // Nếu chạy lố ảnh cuối cùng thì quay lại ảnh đầu tiên
+            if (index >= arrImages.length) {
+                index = 0; 
+            }
+            // Đổi thuộc tính src của thẻ img
+            document.myimage.src = arrImages[index];
+        }
+
+        // 3. Hàm quay lại ảnh trước đó
+        function prevImage() {
+            index--;
+            // Nếu lùi quá ảnh đầu tiên thì nhảy xuống ảnh cuối cùng
+            if (index < 0) {
+                index = arrImages.length - 1; 
+            }
+            document.myimage.src = arrImages[index];
+        }
+    </script>
+</head>
+
+<body>
+    <div class="gallery">
+        <img name="myimage" src="image1.jpg" alt="Slideshow" />
+        
+        <div class="controls">
+            <input type="button" value="<< Trước" onclick="prevImage()" />
+            <input type="button" value="Tiếp >>" onclick="nextImage()" />
+        </div>
+    </div>
+</body>
+</html>

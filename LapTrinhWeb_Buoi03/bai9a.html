@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html> 
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Kiểm tra tính hợp lệ của mail</title>
+        
+        <style>
+            /* Thêm chút viền xanh dương cho giống ảnh mẫu */
+            .box-email {
+                border: 1px solid #6699CC; 
+                padding: 10px;
+                display: inline-block;
+            }
+            body {
+                text-align: center;
+                margin-top: 50px;
+            }
+        </style>
+
+        <script>
+            function kiemTraEmail(the_email) {
+                var acong = the_email.indexOf("@");
+                var daucham = the_email.lastIndexOf(".");
+                var khoangtrang = the_email.indexOf(" ");
+                
+                if ((acong < 1) || // không có ký tự @ hoặc acong nằm ở đầu chuỗi
+                    (daucham < acong + 1) || // không có dấu chấm cuối cùng nằm sau @
+                    (daucham == the_email.length - 1) || // dấu chấm nằm sau cùng
+                    (khoangtrang != -1)) // có khoảng trắng
+                {
+                    alert("Email không hợp lệ"); //
+                    return false; //
+                } else {
+                    // Tui sửa lại text ở đây thành "hợp lệ" thay vì "không đúng" như trong ảnh cho chuẩn logic
+                    alert("Email hợp lệ"); 
+                    return true; //
+                }
+            }
+        </script>
+    </head>
+     
+    <body>       
+        <div class="box-email">
+            <form action="#" method="POST" name="f" onsubmit="return kiemTraEmail(f.emailbox.value);">
+                <input type="text" name="emailbox" value="" placeholder="Nhập email">
+                <input type="submit" value="Gởi" />
+            </form>
+        </div>
+    </body>
+</html>

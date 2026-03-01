@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<title>Bài 14 - UCLN BCNN</title>
+
+<style>
+form{
+    border:1px solid blue; 
+    box-shadow:5px 5px 5px grey; 
+    border-radius:8px;
+    padding:20px;
+    width:350px;    
+    font-size:18px;
+    margin:auto;
+}
+</style>
+
+<script>
+function timucln()
+{
+    var x, y, so1, so2;
+
+    x = parseInt(document.f.a.value);
+    y = parseInt(document.f.b.value);
+
+    if (isNaN(x) || isNaN(y) || x <= 0 || y <= 0) {
+        alert("Vui lòng nhập số nguyên dương!");
+        return;
+    }
+
+    so1 = x;
+    so2 = y;
+
+    // thuật toán Euclid (trừ)
+    while (so1 != so2)
+    {
+        if (so1 > so2)
+            so1 = so1 - so2;
+        else
+            so2 = so2 - so1;
+    }
+
+    var ucln = so1;
+    var bcnn = (x * y) / ucln;
+
+    document.f.x.value = ucln;
+    document.f.y.value = bcnn;
+}
+</script>
+
+</head>
+
+<body>
+<form method="post" name="f">
+<center>
+    Nhập giá trị a:
+    <input type="text" name="a"><br>
+
+    Nhập giá trị b:
+    <input type="text" name="b"><br>
+
+    UCLN:
+    <input type="text" name="x" size="7">
+
+    BCNN:
+    <input type="text" name="y" size="7">
+
+    <input type="button" value="giải" onclick="timucln()">
+</center>
+</form>
+</body>
+</html>

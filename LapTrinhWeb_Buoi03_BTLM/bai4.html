@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bài 4 - Trắc nghiệm</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <style>
+        /* CSS cho bài trắc nghiệm nhìn gọn gàng và chuyên nghiệp hơn */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        form {
+            background: white;
+            max-width: 600px;
+            margin: 30px auto;
+            padding: 20px 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        h2 {
+            text-align: center;
+            color: #2c3e50;
+        }
+        li {
+            margin-top: 15px;
+            font-weight: bold;
+            font-size: 16px;
+        }
+        label {
+            display: block;
+            font-weight: normal;
+            margin-top: 5px;
+            cursor: pointer; /* Đổi con trỏ chuột khi chỉ vào đáp án */
+        }
+        .buttons {
+            text-align: center;
+            margin-top: 25px;
+        }
+        input[type="button"], input[type="reset"] {
+            padding: 10px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        input[type="button"] {
+            background-color: #3498db;
+            color: white;
+            border: none;
+        }
+    </style>
+
+    <script language="Javascript">
+        function tinh() {
+            var sopt = document.f1.elements.length; 
+            var socau = 0;
+            
+            for(var i = 0; i < sopt; i++) {
+                // Kiểm tra xem phần tử có phải là nút radio không
+                if(document.f1.elements[i].type == 'radio') {
+                    // Nếu nút đó được chọn VÀ giá trị là 1 (câu đúng)
+                    if((document.f1.elements[i].checked == true) && (document.f1.elements[i].value == 1)){
+                        socau++;
+                    }
+                }
+            }
+            alert('Chúc mừng! Bạn trả lời đúng ' + socau + '/5 câu.');
+        }
+    </script>
+</head>
+
+<body>
+    <form name="f1">
+        <h2>BÀI KIỂM TRA TRẮC NGHIỆM</h2>
+        <ol>
+            <li>Cửa sổ riêng biệt xuất hiện trong một trang web là:
+                <label><input type="radio" name="c1" value="0"> Webpage</label>
+                <label><input type="radio" name="c1" value="1"> Frame</label>
+                <label><input type="radio" name="c1" value="0"> URL</label>
+                <label><input type="radio" name="c1" value="0"> FrameSet</label>
+            </li>
+
+            <li>Điều khiển nào dùng để hiển thị một danh sách tùy chọn trên form:
+                <label><input type="radio" name="c2" value="0"> input</label>
+                <label><input type="radio" name="c2" value="0"> button</label>
+                <label><input type="radio" name="c2" value="1"> select</label>
+                <label><input type="radio" name="c2" value="0"> textarea</label>
+            </li>
+
+            <li>Phần mở rộng của tập tin Cascading Style Sheet là:
+                <label><input type="radio" name="c3" value="0"> csa</label>
+                <label><input type="radio" name="c3" value="0"> ccs</label>
+                <label><input type="radio" name="c3" value="0"> cas</label>
+                <label><input type="radio" name="c3" value="1"> css</label>
+            </li>
+
+            <li>Loại ảnh nào cho phép hỗ trợ màu nền trong suốt:
+                <label><input type="radio" name="c4" value="1"> GIF</label>
+                <label><input type="radio" name="c4" value="0"> PNG</label>
+                <label><input type="radio" name="c4" value="0"> JPG</label>
+                <label><input type="radio" name="c4" value="0"> PSD</label>
+            </li>
+
+            <li>Kiểu dữ liệu nào không được hỗ trợ trong JavaScript?
+                <label><input type="radio" name="c5" value="1"> Char</label>
+                <label><input type="radio" name="c5" value="0"> Boolean</label>
+                <label><input type="radio" name="c5" value="0"> Null</label>
+                <label><input type="radio" name="c5" value="0"> String</label>
+            </li>
+        </ol>
+
+        <div class="buttons">
+            <input type="button" name="Tinh" value="Xem kết quả" onClick="tinh()" />
+            <input type="reset" name="Xoa" value="Làm lại từ đầu" />
+        </div>
+    </form>
+</body>
+</html>

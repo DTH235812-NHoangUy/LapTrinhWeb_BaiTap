@@ -1,0 +1,19 @@
+<html>
+    <head> </head>
+    <body>
+        <script language="javascript">
+            var ten, tuoi; // khai báo 2 biến để lưu tên và tuổi
+            
+            ten = prompt("bạn hãy nhập vào tên ", "");
+            
+            do {
+                tuoi = prompt("bạn hãy nhập vào tuổi : ", 20);
+                //alert(tuoi);
+            } while (tuoi < 0);
+            
+            document.write("Chào bạn : <b> " + ten + "</b>");
+            document.write("<br>"); // xuống dòng
+            document.write("tuổi của bạn là : <u> " + tuoi + "</u>");
+        </script>
+    </body>
+</html>

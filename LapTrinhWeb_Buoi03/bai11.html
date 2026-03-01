@@ -1,0 +1,78 @@
+<html>
+<head>
+    <title>Bài 11 - Tính tiền giặt ủi</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <script language="Javascript">
+        function tinh() {
+            // 1. Kiểm tra số kg bắt buộc nhập và phải là số
+            if (f1.sokg.value == "") {
+                alert("Vui lòng nhập số kg cần giặt ủi!");
+                f1.sokg.focus();
+                return false;
+            }
+            if (isNaN(f1.sokg.value)) {
+                alert("Số kg bắt buộc phải là số!");
+                f1.sokg.focus();
+                return false;
+            }
+
+            // 2. Khởi tạo biến tính tiền
+            var tiengiat = 0;
+            var tienhap = 0;
+            var tienui = 0;
+
+            // 3. Kiểm tra các dịch vụ được chọn
+            if (f1.giat.checked == true) {
+                tiengiat = f1.giat.value;
+            }
+            if (f1.hap.checked == true) {
+                tienhap = f1.hap.value;
+            }
+            if (f1.ui.checked == true) {
+                tienui = f1.ui.value;
+            }
+
+            // 4. Tính tổng tiền: (giá giặt + giá hấp + giá ủi) * số kg
+            f1.sotien.value = (eval(tiengiat) + eval(tienhap) + eval(tienui)) * f1.sokg.value;
+        }
+    </script>
+</head>
+
+<body>
+    <form name="f1">
+        <table border="1" style="border-collapse: collapse; padding: 5px;">
+            <tr>    
+                <th>DỊCH VỤ</th>
+                <th align="right">ĐƠN GIÁ</th>
+            </tr>
+            <tr>    
+                <td><input type="checkbox" name="giat" value="8000" checked="checked"/> Giặt</td>
+                <td align="right">8.000</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" name="hap" value="5000"/> Hấp</td>
+                <td align="right">5.000</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" name="ui" value="30000"/> Ủi</td>
+                <td align="right">30.000</td>
+            </tr>
+            <tr>
+                <td>Số kg</td>
+                <td><input type="text" name="sokg" size="10"/></td>
+            </tr>
+            <tr>
+                <td>Tổng tiền</td>
+                <td><input type="text" name="sotien" size="10" disabled="true"/></td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center">
+                    <input type="button" name="Tinh" value="Tính" onClick="tinh()" />
+                    <input type="reset" name="Xoa" value="Xóa" />
+                </td>
+            </tr>
+        </table>    
+    </form>
+</body>
+</html>

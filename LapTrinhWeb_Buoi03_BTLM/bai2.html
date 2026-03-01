@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<title>Bài 2 - Giải PT bậc 2</title>
+
+<style>
+table{
+    border:1px solid blue; 
+    box-shadow:5px 5px 5px grey; 
+    border-radius:8px;
+    padding:10px; 
+    margin:auto;
+}
+</style>
+
+<script>
+function giai_pt_bac_hai()
+{
+    var a = parseFloat(document.f.so_a.value);
+    var b = parseFloat(document.f.so_b.value);
+    var c = parseFloat(document.f.so_c.value);
+
+    var kq = "";
+
+    if (isNaN(a) || isNaN(b) || isNaN(c)) {
+        kq = "Vui lòng nhập số hợp lệ";
+    }
+    else if (a == 0)
+    {
+        if (b == 0)
+        {
+            if (c == 0)
+                kq = "Phương trình vô số nghiệm";
+            else
+                kq = "Phương trình vô nghiệm";
+        }
+        else
+        {
+            var x = -c / b;
+            kq = "Phương trình có nghiệm x = " + x;
+        }
+    }
+    else
+    {
+        var delta = b*b - 4*a*c;
+
+        if (delta < 0)
+        {
+            kq = "Phương trình vô nghiệm";
+        }
+        else if (delta == 0)
+        {
+            var x1 = -b / (2*a);
+            kq = "Phương trình có nghiệm kép x = " + x1;
+        }
+        else
+        {
+            var x1 = (-b + Math.sqrt(delta)) / (2*a);
+            var x2 = (-b - Math.sqrt(delta)) / (2*a);
+            kq = "Phương trình có nghiệm x1 = " + x1 + " và x2 = " + x2;
+        }
+    }
+
+    document.f.kq.value = kq;
+}
+</script>
+
+</head>
+
+<body>
+<form name="f">
+<table>
+<tr>
+    <td>Số a:</td>
+    <td><input type="text" name="so_a"></td>
+</tr>
+
+<tr>
+    <td>Số b:</td>
+    <td><input type="text" name="so_b"></td>
+</tr>
+
+<tr>
+    <td>Số c:</td>
+    <td><input type="text" name="so_c"></td>
+</tr>
+
+<tr>
+    <td>
+        <input type="button" value="Giải" onclick="giai_pt_bac_hai()">
+    </td>
+    <td>
+        <input type="text" name="kq" size="40">
+    </td>
+</tr>
+</table>
+</form>
+</body>
+</html>

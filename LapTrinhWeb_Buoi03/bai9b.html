@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Validate Email</title>
+        
+        <script type="text/javascript">
+            function checkEmail() {
+                var email = document.getElementById('email'); //
+                // Biểu thức chính quy (Regex) kiểm tra chuẩn email
+                var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/; //
+                
+                if (!filter.test(email.value)) { //
+                    alert('Hay nhap dia chi email hop le.\nExample@gmail.com'); //
+                    email.focus(); // Đã sửa lỗi thiếu ngoặc tròn của hàm focus để đưa con trỏ chuột về lại ô nhập
+                    return false; //
+                } else {
+                    alert('OK roi day, Email nay hop le.'); //
+                }
+            }
+        </script>
+    </head>
+    
+    <body>
+        <form name="form1" id="form1" method="post">
+            <input type="text" name="email" id="email" size="40"> <input type="button" name="check" value="Check" onclick="checkEmail();"> </form>
+    </body>
+</html>

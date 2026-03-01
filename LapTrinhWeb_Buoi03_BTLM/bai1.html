@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>Bài 1</title>
+
+<style>
+img{
+    float:left;
+    margin-right:10px;
+}
+</style>
+
+<script>
+function hienHinh(){
+    document.getElementById("hinh2").style.visibility = "visible";
+}
+
+function anHinh(){
+    document.getElementById("hinh2").style.visibility = "hidden";
+}
+</script>
+
+</head>
+
+<body>
+
+<img id="hinh1" src="hinh1.jpg"
+     style="border:2px solid blue;"
+     onmouseover="hienHinh()"
+     onmouseout="anHinh()"
+     alt="day la hinh 1">
+
+<img id="hinh2" src="hinh2.jpg"
+     style="visibility:hidden; border:3px solid red;">
+
+</body>
+</html>

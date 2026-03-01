@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Bài 8 - Giải phương trình bậc 1</title>
+        <meta charset="utf-8" />
+        <style>
+            table {
+                border: 1px solid blue; 
+                box-shadow: 5px 5px 5px grey; 
+                border-radius: 8px;
+                padding: 10px; 
+                margin: auto;
+                margin-top: 50px;
+                font-family: Arial, sans-serif;
+            }       
+        </style>
+        
+        <script type="text/javascript">
+            function giai_pt_bac_nhat() {
+                // Lấy giá trị từ form và chuyển thành số
+                var a = eval(document.f.so_a.value);
+                var b = eval(document.f.so_b.value);
+                var c;
+                
+                // Bắt đầu biện luận phương trình
+                if (a == 0) {
+                    if(b == 0) {
+                        c = 'Phương trình vô số nghiệm';
+                    } else {
+                        c = 'Phương trình vô nghiệm';
+                    }
+                } else {
+                    c = 'Phương trình có nghiệm x = ';
+                    c += -b/a;
+                }
+                
+                // Trả kết quả về ô textbox
+                document.f.kq.value = c;
+            }
+        </script>
+    </head>
+    
+    <body>
+        <form action="#" method="post" name="f">
+            <table>
+                <tr>
+                    <td>Số a:</td>
+                    <td><input type="text" name="so_a" /></td>
+                </tr>
+                <tr>
+                    <td>Số b:</td>
+                    <td><input type="text" name="so_b" /></td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="button" value="  Giải " onClick="giai_pt_bac_nhat()">
+                    </td>
+                    <td><input type="text" value="" name="kq" size="40"></td>
+                </tr>
+            </table>
+        </form>
+    </body>
+</html>

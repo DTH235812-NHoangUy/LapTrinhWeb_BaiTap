@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Bài 13 - Máy tính cơ bản</title>
+        <meta charset="utf-8" />
+        
+        <style>
+            /* CSS đóng khung cho giống cái máy tính thật */
+            form {
+                border: 2px solid #555;
+                padding: 15px;
+                width: 220px;
+                background-color: #f0f0f0;
+                border-radius: 10px;
+                text-align: center;
+                margin: 50px auto;
+                box-shadow: 3px 3px 10px grey;
+                font-family: Arial, sans-serif;
+            }
+            input[type="button"] {
+                margin: 5px;
+                width: 45px;
+                font-weight: bold;
+                cursor: pointer;
+            }
+            input[type="text"] {
+                text-align: right;
+                padding: 3px;
+            }
+        </style>
+
+        <script type="text/javascript">
+            // Hàm Cộng
+            function a_plus_b(form) {
+                form.ans.value = Number(form.a.value) + Number(form.b.value);
+            }
+            
+            // Hàm Trừ
+            function a_minus_b(form) {
+                form.ans.value = Number(form.a.value) - Number(form.b.value);
+            }
+            
+            // Hàm Nhân
+            function a_times_b(form) {
+                form.ans.value = Number(form.a.value) * Number(form.b.value);
+            }
+            
+            // Hàm Chia
+            function a_div_b(form) {
+                if (Number(form.b.value) === 0) {
+                    alert("Không thể chia cho 0 nha!");
+                    form.ans.value = "Lỗi";
+                } else {
+                    form.ans.value = Number(form.a.value) / Number(form.b.value);
+                }
+            }
+            
+            // Hàm Lũy thừa (a mũ b)
+            function a_pow_b(form) {
+                form.ans.value = Math.pow(Number(form.a.value), Number(form.b.value));
+            }
+        </script>
+    </head>
+    
+    <body>
+        <form name="formx">             
+            <p>
+                <input type="text" size="10" value="12" name="a"><br><br>
+                <input type="text" size="10" value="3" name="b"><br><br>
+                
+                <input type="button" value="  +  " onClick="a_plus_b(this.form)"> &nbsp;&nbsp;
+                <input type="button" value="  -  " onClick="a_minus_b(this.form)"> <br>
+                <input type="button" value="  x  " onClick="a_times_b(this.form)"> &nbsp;&nbsp;
+                <input type="button" value="  /  " onClick="a_div_b(this.form)"> <br>
+                <input type="button" value="  ^  " onClick="a_pow_b(this.form)"><br><br>
+                
+                Kết quả <input type="text" value="0" name="ans" size="10" readonly> 
+            </p> 
+        </form>         
+    </body>
+</html>

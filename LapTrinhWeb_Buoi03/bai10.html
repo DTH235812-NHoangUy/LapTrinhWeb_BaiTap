@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Bài 10 - Thay đổi CSS</title>
+        
+        <style>
+            /* Khởi tạo CSS ban đầu cho thẻ div theo yêu cầu */
+            #message {
+                background-color: red; 
+                color: black; 
+                height: 40px; 
+                font-size: 12px;
+                border: 2px solid blue; /* Thêm viền xanh cho giống ảnh minh họa */
+                margin-bottom: 10px;
+                padding: 5px;
+            }
+        </style>
+
+        <script language="javascript">
+            function change_background() {
+                // Đã sửa 'red' thành 'yellow' theo đúng yêu cầu đề bài
+                document.getElementById("message").style.background = 'yellow';
+            }
+            
+            function change_color() {
+                document.getElementById("message").style.color = 'blue'; //
+            }
+            
+            function change_height() {
+                document.getElementById("message").style.height = '500px'; //
+            }
+            
+            function change_font_size() {
+                // Đã sửa '500px' thành '20px' theo đúng yêu cầu đề bài
+                document.getElementById("message").style.fontSize = '20px';
+            }
+        </script>
+    </head>
+    
+    <body>
+        <div id="message">
+           Cùng học javascript
+        </div>
+        
+        <input type="button" value="Change background" onclick="change_background()"/>
+        <input type="button" value="Change color" onclick="change_color()"/>
+        <input type="button" value="Change height" onclick="change_height()"/>
+        <input type="button" value="Change fontsize" onclick="change_font_size()"/>
+    </body>
+</html>
