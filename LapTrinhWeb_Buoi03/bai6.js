@@ -1,27 +1,31 @@
 function KiemTra() {
-    // Lấy thông tin từ FORM thông qua thuộc tính name
-    var tdn = document.getElementsByName("txtTDN")[0].value;
-    var mk = document.getElementsByName("txtMK")[0].value;
-    var xnmk = document.getElementsByName("txtXNMK")[0].value;
+    // 1. Lấy giá trị từ các ô input thông qua thuộc tính name
+    var tdn = document.forms[0].txtTDN.value;
+    var mk = document.forms[0].txtMK.value;
+    var xnmk = document.forms[0].txtXNMK.value;
 
-    // Kiểm tra 1: Không nhập giá trị vào 3 ô
-    if(tdn == "" || mk == "" || xnmk == "") {
-        alert("Các trường không được bỏ trống!");
-        return false;
-    }
-
-    // Kiểm tra 2: Tên đăng nhập nhỏ hơn 6 ký tự
-    if(tdn.length < 6) {
+    // 2. Kiểm tra Tên đăng nhập phải nhiều hơn 6 ký tự
+    if (tdn.length <= 6) {
         alert("Tên đăng nhập phải nhiều hơn 6 ký tự!");
+        document.forms[0].txtTDN.focus(); // Đưa con trỏ chuột về ô lỗi
+        return false; // Ngăn không cho submit form
+    }
+
+    // 3. Kiểm tra mật khẩu không được để trống
+    if (mk == "") {
+        alert("Mật khẩu không được để trống!");
+        document.forms[0].txtMK.focus();
         return false;
     }
 
-    // Kiểm tra 3: Mật khẩu nhập lại không khớp
-    if(mk != xnmk) {
-        alert("Xác nhận mật khẩu không chính xác!");
+    // 4. Kiểm tra mật khẩu xác nhận phải khớp
+    if (mk !== xnmk) {
+        alert("Mật khẩu xác nhận không khớp!");
+        document.forms[0].txtXNMK.focus();
         return false;
     }
 
-    // Nếu qua hết các ải trên thì cho phép submit form
-    return true;
+    // 5. Nếu mọi thứ đều đúng
+    alert("Đăng ký thành công!");
+    return true; 
 }
