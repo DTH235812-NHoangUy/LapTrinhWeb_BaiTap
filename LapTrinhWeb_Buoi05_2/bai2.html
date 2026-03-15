@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8">
+    <title>Bài 2 - Phiếu mua hàng trả góp</title>
+    <style>
+        body{
+            background: silver;
+            padding: 5px;
+            font-family: Verdana, Arial, sans-serif;
+            font-size: 10pt;
+            margin: 0;
+        }
+
+        #khungtrang{
+            width: 804px;
+            margin: auto;
+            background: white;
+        }
+
+        #phantren{
+            height: 100px;
+        }
+
+        #phantren img{
+            width: 804px;
+            height: 100px;
+            display: block;
+        }
+
+        #phanmenungang{
+            height: 25px;
+            line-height: 25px;
+            background: #009933;
+            text-align: center;
+        }
+
+        a.menungang{
+            color: white;
+            font-weight: bold;
+            text-decoration: none;
+            font-size: 9pt;
+        }
+
+        a.menungang:hover{
+            text-decoration: underline;
+        }
+
+        #phantrai{
+            float: left;
+            width: 150px;
+            min-height: 700px;
+            border-right: 1px solid #009933;
+            box-sizing: border-box;
+        }
+
+        .khungmenu{
+            padding: 5px;
+        }
+
+        .tieudemenu{
+            text-align: center;
+            font-weight: bold;
+            color: #009933;
+            border-bottom: 1px dashed #009933;
+            padding-bottom: 4px;
+            margin-bottom: 5px;
+        }
+
+        a.menu{
+            display: block;
+            margin-left: 5px;
+            margin-right: 5px;
+            padding: 4px;
+            text-decoration: none;
+            color: darkblue;
+        }
+
+        a.menu:hover{
+            background: #ccffcc;
+            color: red;
+        }
+
+        #phangiua{
+            float: left;
+            width: 500px;
+            min-height: 700px;
+            box-sizing: border-box;
+        }
+
+        table.bieumau{
+            width: 470px;
+            margin: 10px auto;
+            border-collapse: collapse;
+        }
+
+        table.bieumau td{
+            padding: 6px;
+            vertical-align: top;
+        }
+
+        .canhgiua{
+            text-align: center;
+        }
+
+        .tieude{
+            font-weight: bold;
+            color: #009933;
+            border-bottom: 1px dashed #009933;
+            padding-top: 8px;
+        }
+
+        input[type="text"], select, textarea{
+            width: 100%;
+            box-sizing: border-box;
+            font-family: Verdana, Arial, sans-serif;
+            font-size: 10pt;
+            padding: 4px;
+        }
+
+        textarea{
+            height: 60px;
+            resize: none;
+        }
+
+        input[type="button"], input[type="reset"]{
+            padding: 5px 12px;
+            font-family: Verdana, Arial, sans-serif;
+            font-size: 10pt;
+        }
+
+        #phangiua img{
+            width: 470px;
+            display: block;
+            margin: 10px auto;
+        }
+
+        #phanphai{
+            float: left;
+            width: 150px;
+            min-height: 700px;
+            box-sizing: border-box;
+        }
+
+        .spgiamgia{
+            width: 140px;
+            border: 1px solid #009933;
+            border-radius: 8px;
+            margin: 2px auto 6px auto;
+            padding: 5px;
+            text-align: center;
+            box-sizing: border-box;
+        }
+
+        .spgiamgia img{
+            width: 100px;
+            height: 100px;
+        }
+
+        .tenhang{
+            font-weight: bold;
+            color: darkblue;
+        }
+
+        .giagoc{
+            color: gray;
+            text-decoration: line-through;
+        }
+
+        .giagiam{
+            color: red;
+            font-weight: bold;
+        }
+
+        #phanduoi{
+            clear: both;
+            text-align: center;
+            border-top: 1px dashed #009933;
+            padding: 10px 5px;
+            font-size: 9pt;
+        }
+
+        #phanduoi img{
+            height: 30px;
+            margin: 2px;
+            vertical-align: middle;
+        }
+    </style>
+
+    <script>
+        function hienNgay() {
+            var d = new Date();
+            var ngay = String(d.getDate()).padStart(2, '0');
+            var thang = String(d.getMonth() + 1).padStart(2, '0');
+            var nam = d.getFullYear();
+            document.f.txtNgay.value = ngay + "/" + thang + "/" + nam;
+        }
+
+        function napNamSinh() {
+            var namHienTai = new Date().getFullYear();
+            var cbo = document.f.cboNamSinh;
+
+            var op = document.createElement("option");
+            op.value = "";
+            op.text = "-- Chọn năm sinh --";
+            cbo.appendChild(op);
+
+            for (var i = 1970; i <= namHienTai; i++) {
+                var option = document.createElement("option");
+                option.value = i;
+                option.text = i;
+                cbo.appendChild(option);
+            }
+        }
+
+        function ktDienThoai() {
+            var dt = document.f.txtDienThoai.value.trim();
+            if (dt !== "" && isNaN(dt)) {
+                alert("Điện thoại phải là số");
+                document.f.txtDienThoai.focus();
+                return false;
+            }
+            return true;
+        }
+
+        function ktEmail() {
+            var email = document.f.txtEmail.value.trim();
+            if (email === "") return true;
+
+            var mau = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!mau.test(email)) {
+                alert("Email không hợp lệ");
+                document.f.txtEmail.focus();
+                return false;
+            }
+            return true;
+        }
+
+        function kiemTra() {
+            var hoten = document.f.txtHoTen.value.trim();
+            var namsinh = document.f.cboNamSinh.value;
+            var dienthoai = document.f.txtDienThoai.value.trim();
+            var diachi = document.f.txtDiaChi.value.trim();
+            var rad1 = document.f.radThoiHan[0].checked;
+            var rad2 = document.f.radThoiHan[1].checked;
+            var namHienTai = new Date().getFullYear();
+
+            if (hoten === "") {
+                alert("Họ tên không được bỏ trống");
+                document.f.txtHoTen.focus();
+                return false;
+            }
+
+            if (hoten.length < 4) {
+                alert("Họ tên phải có ít nhất 4 ký tự");
+                document.f.txtHoTen.focus();
+                return false;
+            }
+
+            if (namsinh === "") {
+                alert("Phải chọn năm sinh");
+                document.f.cboNamSinh.focus();
+                return false;
+            }
+
+            if (namHienTai - parseInt(namsinh) <= 15) {
+                alert("Khách hàng phải lớn hơn 15 tuổi");
+                document.f.cboNamSinh.focus();
+                return false;
+            }
+
+            if (!rad1 && !rad2) {
+                alert("Phải chọn thời hạn trả");
+                return false;
+            }
+
+            if (dienthoai === "") {
+                alert("Điện thoại không được bỏ trống");
+                document.f.txtDienThoai.focus();
+                return false;
+            }
+
+            if (isNaN(dienthoai)) {
+                alert("Điện thoại phải là số");
+                document.f.txtDienThoai.focus();
+                return false;
+            }
+
+            if (diachi === "") {
+                alert("Địa chỉ không được bỏ trống");
+                document.f.txtDiaChi.focus();
+                return false;
+            }
+
+            if (!ktEmail()) return false;
+
+            alert("Dữ liệu hợp lệ");
+            return true;
+        }
+
+        window.onload = function () {
+            hienNgay();
+            napNamSinh();
+        };
+    </script>
+</head>
+
+<body>
+    <div id="khungtrang">
+        <div id="phantren">
+            <img src="hinhanh/banner.jpg" alt="Banner">
+        </div>
+
+        <div id="phanmenungang">
+            <a class="menungang" href="#">Trang chủ</a> |
+            <a class="menungang" href="#">Giới thiệu</a> |
+            <a class="menungang" href="#">Tin tức</a> |
+            <a class="menungang" href="#">Tuyển dụng</a> |
+            <a class="menungang" href="#">Hướng dẫn mua hàng</a> |
+            <a class="menungang" href="#">Liên hệ</a> |
+            <a class="menungang" href="#">Đăng ký</a> |
+            <a class="menungang" href="#">Đăng nhập</a>
+        </div>
+
+        <div id="phantrai">
+            <div class="khungmenu">
+                <p class="tieudemenu">ĐIỆN TỬ</p>
+                <a class="menu" href="#">Tivi</a>
+                <a class="menu" href="#">Đầu DVD</a>
+                <a class="menu" href="#">Đầu Karaoke</a>
+                <a class="menu" href="#">Loa</a>
+                <a class="menu" href="#">Dàn máy</a>
+            </div>
+
+            <div class="khungmenu">
+                <p class="tieudemenu">ĐIỆN LẠNH</p>
+                <a class="menu" href="#">Tủ lạnh</a>
+                <a class="menu" href="#">Máy giặt</a>
+                <a class="menu" href="#">Máy lạnh</a>
+                <a class="menu" href="#">Máy nước nóng</a>
+            </div>
+
+            <div class="khungmenu">
+                <p class="tieudemenu">GIA DỤNG</p>
+                <a class="menu" href="#">Lò vi sóng</a>
+                <a class="menu" href="#">Bếp điện từ</a>
+                <a class="menu" href="#">Nồi cơm điện</a>
+                <a class="menu" href="#">Máy hút bụi</a>
+                <a class="menu" href="#">Bàn ủi</a>
+                <a class="menu" href="#">Quạt</a>
+            </div>
+
+            <div class="khungmenu">
+                <marquee behavior="alternate" direction="up" height="180">
+                    <img src="hinhanh/h1.jpg" width="140">
+                    <img src="hinhanh/h2.jpg" width="140">
+                    <img src="hinhanh/h3.jpg" width="140">
+                    <img src="hinhanh/h4.jpg" width="140">
+                </marquee>
+            </div>
+        </div>
+
+        <div id="phangiua">
+            <form name="f" method="post" action="">
+                <table class="bieumau">
+                    <tr>
+                        <td colspan="3" class="canhgiua"><h2>PHIẾU MUA HÀNG TRẢ GÓP</h2></td>
+                    </tr>
+                    <tr>
+                        <td>Ngày</td>
+                        <td><input type="text" name="txtNgay" readonly></td>
+                        <td>&nbsp;</td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="3" class="tieude">THÔNG TIN SẢN PHẨM</td>
+                    </tr>
+                    <tr>
+                        <td>Chọn sản phẩm</td>
+                        <td>
+                            <select name="optSanPham">
+                                <option value="Máy giặt Toshiba 6.5 kg">Máy giặt Toshiba 6.5 kg</option>
+                                <option value="Máy giặt Toshiba 7.0 kg">Máy giặt Toshiba 7.0 kg</option>
+                                <option value="Máy giặt Samsung 6.5 kg">Máy giặt Samsung 6.5 kg</option>
+                            </select>
+                        </td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td>Thời hạn trả</td>
+                        <td>
+                            <input type="radio" name="radThoiHan" value="1"> 6 tháng
+                            <input type="radio" name="radThoiHan" value="2"> 12 tháng
+                        </td>
+                        <td>*</td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp;</td>
+                        <td>
+                            <input type="checkbox" name="chkGiaoHang"> Giao hàng tận nơi
+                        </td>
+                        <td>&nbsp;</td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="3" class="tieude">THÔNG TIN KHÁCH HÀNG</td>
+                    </tr>
+                    <tr>
+                        <td>Họ tên</td>
+                        <td><input type="text" name="txtHoTen"></td>
+                        <td>*</td>
+                    </tr>
+                    <tr>
+                        <td>Năm sinh</td>
+                        <td>
+                            <select name="cboNamSinh"></select>
+                        </td>
+                        <td>*</td>
+                    </tr>
+                    <tr>
+                        <td>Điện thoại</td>
+                        <td><input type="text" name="txtDienThoai" onchange="ktDienThoai();"></td>
+                        <td>*</td>
+                    </tr>
+                    <tr>
+                        <td>Email</td>
+                        <td><input type="text" name="txtEmail" onchange="ktEmail();"></td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td>Địa chỉ</td>
+                        <td><textarea name="txtDiaChi"></textarea></td>
+                        <td>*</td>
+                    </tr>
+                    <tr>
+                        <td colspan="3" class="canhgiua">
+                            <input type="button" name="btnXacNhan" value="Xác nhận" onclick="kiemTra();">
+                            <input type="reset" name="btnKhong" value="Không">
+                        </td>
+                    </tr>
+                </table>
+            </form>
+
+            <img src="hinhanh/quangcao.gif" alt="Quảng cáo">
+        </div>
+
+        <div id="phanphai">
+            <div class="spgiamgia">
+                <img src="hinhanh/gg_banui.jpg" alt="">
+                <span class="tenhang">GOLDSUN DW-GKY1200</span><br>
+                <span class="giagoc">299.000</span><br>
+                <span class="giagiam">149.000</span>
+            </div>
+
+            <div class="spgiamgia">
+                <img src="hinhanh/gg_nuocnong.jpg" alt="">
+                <span class="tenhang">PANASONIC DH-3JL1-V</span><br>
+                <span class="giagoc">2.290.000</span><br>
+                <span class="giagiam">1.599.000</span>
+            </div>
+
+            <div class="spgiamgia">
+                <img src="hinhanh/gg_maygiat.jpg" alt="">
+                <span class="tenhang">SAMSUNG WF1752WQR/XSV</span><br>
+                <span class="giagoc">8.990.000</span><br>
+                <span class="giagiam">7.999.000</span>
+            </div>
+        </div>
+
+        <div id="phanduoi">
+            <br>Cửa hàng điện gia dụng GIA KHANG - Chuyên cung cấp mặt hàng của các nhãn hiệu hàng đầu thế giới.<br>
+            <img src="hinhanh/panasonic.png" alt="">
+            <img src="hinhanh/philips.png" alt="">
+            <img src="hinhanh/samsung.png" alt="">
+            <img src="hinhanh/sanyo.png" alt="">
+            <img src="hinhanh/sharp.png" alt="">
+            <img src="hinhanh/sony.png" alt="">
+            <img src="hinhanh/toshiba.png" alt="">
+            <img src="hinhanh/lg.png" alt="">
+            <img src="hinhanh/blacker.png" alt="">
+            <img src="hinhanh/goldsun.png" alt="">
+        </div>
+    </div>
+</body>
+</html>
