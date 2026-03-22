@@ -2,9 +2,9 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-$servername = "localhost";
+$servername = "127.0.0.1";
 $username   = "root";
-$password   = "vertrigo";
+$password   = "";
 $dbname     = "quanly_tin";
 $port       = 3307;
 
@@ -16,11 +16,10 @@ try {
     );
     $connect->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    $sql = "SELECT * FROM linhvuc";
+    $sql = "SELECT * FROM linhvuc ORDER BY MaLinhVuc ASC";
     $danhsach = $connect->prepare($sql);
-
-    $danhsach->setFetchMode(PDO::FETCH_ASSOC);
     $danhsach->execute();
+    $danhsach->setFetchMode(PDO::FETCH_ASSOC);
 } catch (PDOException $e) {
     die("ERROR: Không thể kết nối. " . $e->getMessage());
 }
@@ -53,6 +52,10 @@ try {
         echo "<td>" . htmlspecialchars($row['TenLinhVuc']) . "</td>";
         echo "</tr>";
         $stt++;
+    }
+
+    if ($stt == 1) {
+        echo '<tr><td colspan="3" align="center">Chưa có dữ liệu lĩnh vực</td></tr>';
     }
     ?>
 

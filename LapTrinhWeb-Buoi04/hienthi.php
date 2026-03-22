@@ -2,9 +2,9 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-$servername = "localhost";
+$servername = "127.0.0.1";
 $username   = "root";
-$password   = "vertrigo";
+$password   = "";
 $dbname     = "quanly_tin";
 $port       = 3307;
 
@@ -16,7 +16,7 @@ if ($connect->connect_error) {
 
 $connect->set_charset("utf8");
 
-$sql = "SELECT * FROM linhvuc";
+$sql = "SELECT MaLinhVuc, TenLinhVuc FROM linhvuc ORDER BY MaLinhVuc ASC";
 $danhsach = $connect->query($sql);
 
 if (!$danhsach) {

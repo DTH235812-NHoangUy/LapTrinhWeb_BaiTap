@@ -1,0 +1,144 @@
+body {
+	font-family: Arial;
+	font-size: 14px;
+	margin: 0;	
+}
+
+#TrangWeb {
+	width: 1000px;
+	margin: 0 auto;
+	border: 1px solid #A9A9A9;	
+}
+
+#PhanDau {
+	width: 1000px;
+	height: 100px;	
+	background: red url("images/header.jpg");	
+	color: red;
+	font-size: 16px;
+	font-weight:bold;	
+	text-align: right;	
+}
+
+#PhanGiua {
+	width: 1000px;
+}
+
+#BenTrai {
+	width: 200px;
+	float: left;
+	min-height: 400px;
+}
+
+#BenTrai h3 {
+	font-size: 20px;
+	padding: 2px 0 2px 5px;
+	margin: 1px 0 0 0;
+	color: #f3f3d9;
+	font-family: Tahoma;
+	background: #ed0678;
+}
+
+#BenTrai ul {
+	padding: 3px 0 3px 18px;
+	margin: 0 0 8px 0;
+	border: 1px solid #ed0678;
+}
+
+#BenTrai ul li {
+	padding: 2px 0 2px 0;
+}
+
+#BenTrai ul li a {
+	text-decoration: none;
+}
+
+#BenTrai ul li a:hover {
+	text-decoration: underline;
+	color: #ff0000;
+}
+
+#BenPhai {
+	width: 790px;
+	float: right;
+}
+
+#BenPhai h3 {
+	font-size: 20px;
+	padding: 2px 0 2px 0;
+	margin: 8px 0 0 0;
+	color: #4169E1;
+	font-family: Tahoma;
+	text-shadow: 2px 2px 3px #00FF00;
+}
+
+#PhanCuoi {
+	clear: both;
+	width: 1000px;
+	height: 100px;
+	background: url("images/footer.jpg");
+}
+
+table.Form {
+	border-collapse: collapse;
+	border: 1px solid #A9A9A9;
+	margin: auto;
+}
+td{
+	border: 1px solid #A9A9A9;
+}
+
+td.tieude1{
+	text-align:center;
+	font-size:16pt;
+}
+
+table.List {
+	border-collapse: collapse;
+}
+
+table.List th {
+	font-size: 15px;
+	background: #1E90FF;
+	color: #ffffff;
+	border: 1px solid #A9A9A9;
+}
+
+table.List td {
+	border: 1px solid #A9A9A9;
+}
+
+input[type=text], textarea {
+	width: 280px;
+	padding: 5px 3px;
+	background: #FFFFFF;
+	border: 1px dotted #00BFFF;
+}
+
+input[type=text]:focus, textarea:focus {
+	border: 1px solid #0000FF;
+}
+
+textarea {
+	height: 60px;
+}
+
+input[type=submit], input[type=reset] {
+	padding: 5px 10px;
+	border: 1px solid #808000;
+	background-color: #98FB98;
+}
+
+span.requirefield {
+	color: #FF0000;
+	font-size: 12px;
+	padding-left: 5px;
+}
+
+p.requirefields {
+	color: #FF0000;
+	font-style: italic;
+	font-size: 12px;
+	padding: 0;
+	margin: 5px 0px 5px 0px;
+}

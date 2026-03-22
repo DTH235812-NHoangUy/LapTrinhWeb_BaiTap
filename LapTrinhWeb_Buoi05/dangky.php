@@ -23,9 +23,9 @@
                     <select name="optSanPham">
                         <option value="">--- Chọn sản phẩm ---</option>
                         <?php
-                            $servername = "localhost";
+                            $servername = "127.0.0.1";
                             $username   = "root";
-                            $password   = "vertrigo";
+                            $password   = "";
                             $dbname     = "qlhanghoa";
                             $port       = 3307; // đổi 3306 nếu máy bạn dùng 3306
 

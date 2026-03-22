@@ -2,9 +2,9 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-$servername = "localhost";
+$servername = "127.0.0.1";
 $username   = "root";
-$password   = "vertrigo";
+$password   = "";
 $dbname     = "quanly_tin";
 $port       = 3307;
 

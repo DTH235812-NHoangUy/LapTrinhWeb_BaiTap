@@ -2,9 +2,9 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-$servername = "localhost";
+$servername = "127.0.0.1";
 $username   = "root";
-$password   = "vertrigo";
+$password   = "";
 $dbname     = "quanly_tin";
 $port       = 3307;
 
@@ -16,7 +16,7 @@ if (!$conn) {
 
 mysqli_set_charset($conn, "utf8");
 
-$sql = "SELECT * FROM linhvuc";
+$sql = "SELECT * FROM linhvuc ORDER BY MaLinhVuc ASC";
 $danhsach = mysqli_query($conn, $sql);
 
 if (!$danhsach) {
@@ -53,6 +53,8 @@ if (!$danhsach) {
             echo "</tr>";
             $stt++;
         }
+    } else {
+        echo '<tr><td colspan="3" align="center">Chưa có dữ liệu lĩnh vực</td></tr>';
     }
     ?>
 

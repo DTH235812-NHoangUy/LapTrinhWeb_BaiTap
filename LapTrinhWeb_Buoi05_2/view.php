@@ -42,7 +42,7 @@
     </tr>
 
 <?php
-$conn = mysqli_connect("127.0.0.1", "root", "vertrigo", "hdthuoc", 3307);
+$conn = mysqli_connect("127.0.0.1", "root", "", "hdthuoc", 3307);
 
 if (!$conn) {
     die("<tr><td colspan='4'>Lỗi kết nối: " . mysqli_connect_error() . "</td></tr>");

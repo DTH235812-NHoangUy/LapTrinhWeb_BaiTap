@@ -47,9 +47,9 @@ th{
     </p>
 
     <?php
-        $servername = "localhost";
+        $servername = "127.0.0.1";
         $username   = "root";
-        $password   = "vertrigo";
+        $password   = "";
         $dbname     = "qltin";
         $port       = 3307;
 
